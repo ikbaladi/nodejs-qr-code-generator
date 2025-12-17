@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔲 QR Code Generator</h1>
+            <p>Generate QR codes instantly for URLs, text, and more!</p>
+        </header>
+
+        <main>
+            <div class="generator-section">
+                <div class="input-group">
+                    <label for="textInput">Enter Text or URL:</label>
+                    <textarea 
+                        id="textInput" 
+                        placeholder="https://example.com or any text..."
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="options-group">
+                    <div class="option">
+                        <label for="sizeInput">Size:</label>
+                        <select id="sizeInput">
+                            <option value="200">Small (200x200)</option>
+                            <option value="300" selected>Medium (300x300)</option>
+                            <option value="500">Large (500x500)</option>
+                            <option value="800">Extra Large (800x800)</option>
+                        </select>
+                    </div>
+
+                    <div class="option">
+                        <label for="errorLevel">Error Correction:</label>
+                        <select id="errorLevel">
+                            <option value="L">Low (L)</option>
+                            <option value="M" selected>Medium (M)</option>
+                            <option value="Q">Quartile (Q)</option>
+                            <option value="H">High (H)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="color-options">
+                    <div class="color-input">
+                        <label for="darkColor">Dark Color:</label>
+                        <input type="color" id="darkColor" value="#000000">
+                    </div>
+                    <div class="color-input">
+                        <label for="lightColor">Light Color:</label>
+                        <input type="color" id="lightColor" value="#FFFFFF">
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="btn btn-primary">
+                    Generate QR Code
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>Your QR Code</h2>
+                <div class="qr-preview">
+                    <img id="qrImage" src="" alt="Generated QR Code">
+                </div>
+                <div class="actions">
+                    <button id="downloadBtn" class="btn btn-success">
+                        📥 Download PNG
+                    </button>
+                    <button id="copyBtn" class="btn btn-secondary">
+                        📋 Copy Image
+                    </button>
+                    <button id="resetBtn" class="btn btn-outline">
+                        🔄 Generate New
+                    </button>
+                </div>
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using Node.js & Express</p>
+            <p class="api-docs">
+                <a href="/api/health" target="_blank">API Health Check</a>
+            </p>
+        </footer>
+    </div>
+
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
