@@ -25,5 +25,4 @@ jobs:
           cd /home/apcelixc/projects/nodejs
           git pull origin main
           npm install
-          pm2 restart qr-generator || pm2 start server.js --name qr-generator
-          pm2 save
+          
